@@ -1,0 +1,37 @@
+{
+  "name": "@behaver/fixed-star-calculator",
+  "version": "1.0.0",
+  "description": "This package is builded for calculating the equinoctial coordinate of fixed stars.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/behaver/fixed-star-calculator.git"
+  },
+  "keywords": [
+    "fixed",
+    "star"
+  ],
+  "author": "Sanwan, Dong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/behaver/fixed-star-calculator/issues"
+  },
+  "homepage": "https://github.com/behaver/fixed-star-calculator#readme",
+  "devDependencies": {
+    "@behaver/celestial-coordinate": "^1.5.1",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  },
+  "dependencies": {
+    "@behaver/angle": "^2.0.2",
+    "@behaver/annual-parallax": "^1.0.0",
+    "@behaver/jdate": "^2.3.0",
+    "@behaver/solar-planets-hecc": "^1.0.4"
+  }
+}
