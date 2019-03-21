@@ -20,10 +20,10 @@ class DynamicCalculator extends CalculatorCommon {
   /**
    * 计算恒星 Date 赤道坐标
    * 
-   * @param  {Number} options.RA       J2000 平赤经
-   * @param  {Number} options.Dec      J2000 平赤纬
-   * @param  {Number} options.PMRA     赤经周年自行，单位：角秒每儒略年
-   * @param  {Number} options.PMDec    赤纬周年自行，单位：角秒每儒略年
+   * @param  {Number} options.RA       J2000 平赤经，单位：°
+   * @param  {Number} options.Dec      J2000 平赤纬，单位：°
+   * @param  {Number} options.PMRA     赤经自行，单位：角秒每儒略年
+   * @param  {Number} options.PMDec    赤纬自行，单位：角秒每儒略年
    * @param  {Number} options.radVel   日心视向速度，单位：km/s
    * @param  {Number} options.parallax 周年视差，单位：角秒
 
@@ -37,6 +37,9 @@ class DynamicCalculator extends CalculatorCommon {
     radVel,
     parallax,
   }) {
+    // radVel 缺省值处理
+    if (radVel === undefined) radVel = 0;
+
     // 时间差度，单位：儒略年
     let d = this.private.epoch.JDEC * 100;
 

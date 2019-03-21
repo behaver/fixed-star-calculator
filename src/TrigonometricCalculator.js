@@ -37,6 +37,9 @@ class TrigonometricCalculator extends CalculatorCommon {
     radVel,
     parallax,
   }) {
+    // radVel 缺省值处理
+    if (radVel === undefined) radVel = 0;
+    
     // 一天文单位的千米数
     let KMPerAU = 149597870;
 
