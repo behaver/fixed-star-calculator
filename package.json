@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "@behaver/angle": "^2.0.2",
-    "@behaver/annual-parallax": "^1.0.0",
+    "@behaver/annual-parallax": "^1.0.1",
     "@behaver/jdate": "^2.3.0",
-    "@behaver/solar-planets-hecc": "^1.0.4"
+    "@behaver/solar-planets-hecc": "^1.0.5"
   }
 }
