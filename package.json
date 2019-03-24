@@ -24,14 +24,17 @@
   },
   "homepage": "https://github.com/behaver/fixed-star-calculator#readme",
   "devDependencies": {
-    "@behaver/celestial-coordinate": "^1.5.1",
+    "@behaver/celestial-coordinate": "^1.6.0",
     "chai": "^4.2.0",
     "mocha": "^6.0.2"
   },
   "dependencies": {
-    "@behaver/angle": "^2.0.2",
-    "@behaver/annual-parallax": "^1.0.1",
-    "@behaver/jdate": "^2.3.0",
-    "@behaver/solar-planets-hecc": "^1.0.5"
-  }
+    "@behaver/angle": "^2.0.3",
+    "@behaver/annual-parallax": "^1.0.2",
+    "@behaver/jdate": "^2.3.2",
+    "@behaver/solar-planets-hecc": "^1.0.6"
+  },
+  "files": [
+    "src"
+  ]
 }
