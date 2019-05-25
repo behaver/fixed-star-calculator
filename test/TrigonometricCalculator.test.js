@@ -27,6 +27,8 @@ describe('#index', () => {
 
       let ec1 = new EquinoctialCoordinate({
         sc: res1,
+        withAnnualAberration: false,
+        withNutation: false,
       });
 
       // 修正岁差
@@ -61,6 +63,8 @@ describe('#index', () => {
 
       let eqc = new EquinoctialCoordinate({
         sc,
+        withAnnualAberration: false,
+        withNutation: false,
       });
 
       // 修正岁差
