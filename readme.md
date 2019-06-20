@@ -31,11 +31,11 @@ let Calculator = new DynamicCalculator(jdate);
 
 // 计算恒星修正自行和周年视差后的球坐标
 let sc = Calculator.calc({
-  RA: 41.0500,
-  Dec: 49.2283,
-  PMRA: 0.336,
-  PMDec: -0.089,
-  radVel: 25,
+  ra: 41.0500,
+  dec: 49.2283,
+  pmra: 0.336,
+  pmdec: -0.089,
+  radvel: 25,
   parallax: 0.089,
 });
 
@@ -85,11 +85,11 @@ console.log(eqc.radius);
 
 计算恒星赤道坐标（修正了自行和周年视差）
 
-* options.RA       J2000 平赤经
-* options.Dec      J2000 平赤纬
-* options.PMRA     赤经周年自行，单位：角秒每儒略年
-* options.PMDec    赤纬周年自行，单位：角秒每儒略年
-* options.radVel   日心视向速度，单位：km/s
+* options.ra       J2000 平赤经
+* options.dec      J2000 平赤纬
+* options.pmra     赤经周年自行，单位：角秒每儒略年
+* options.pmdec    赤纬周年自行，单位：角秒每儒略年
+* options.radvel   日心视向速度，单位：km/s
 * options.parallax 周年视差，单位：角秒
 
 ## 许可证书

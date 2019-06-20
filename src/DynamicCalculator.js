@@ -13,38 +13,37 @@ const angle = new Angle;
  * 本方法计算结果完成恒星自行和周年视差修正
  *
  * @author 董 三碗 <qianxing@yeah.net>
- * @version 1.0.0
  */
 class DynamicCalculator extends CalculatorCommon {
 
   /**
    * 计算恒星 Date 赤道坐标
    * 
-   * @param  {Number} options.RA       J2000 平赤经，单位：°
-   * @param  {Number} options.Dec      J2000 平赤纬，单位：°
-   * @param  {Number} options.PMRA     赤经自行，单位：角秒每儒略年
-   * @param  {Number} options.PMDec    赤纬自行，单位：角秒每儒略年
-   * @param  {Number} options.radVel   日心视向速度，单位：km/s
+   * @param  {Number} options.ra       J2000 平赤经，单位：°
+   * @param  {Number} options.dec      J2000 平赤纬，单位：°
+   * @param  {Number} options.pmra     赤经自行，单位：角秒每儒略年
+   * @param  {Number} options.pmdec    赤纬自行，单位：角秒每儒略年
+   * @param  {Number} options.radvel   日心视向速度，单位：km/s
    * @param  {Number} options.parallax 周年视差，单位：角秒
 
    * @return {Object}                  恒星 Date 赤道坐标对象
    */
   calc({
-    RA,
-    Dec,
-    PMRA,
-    PMDec,
-    radVel,
+    ra,
+    dec,
+    pmra,
+    pmdec,
+    radvel,
     parallax,
   }) {
-    // radVel 缺省值处理
-    if (radVel === undefined) radVel = 0;
+    // radvel 缺省值处理
+    if (radvel === undefined) radvel = 0;
 
     // 时间差度，单位：儒略年
     let d = this.private.epoch.JDEC * 100;
 
-    let RA_s = angle.setDegrees(RA).getSeconds(),
-        Dec_s = angle.setDegrees(Dec).getSeconds();
+    let RA_s = angle.setDegrees(ra).getSeconds(),
+        Dec_s = angle.setDegrees(dec).getSeconds();
 
     /* 日心距离处理 */
 
@@ -56,18 +55,18 @@ class DynamicCalculator extends CalculatorCommon {
     /* 自行差处理 */
 
     // 赤经自行角度，单位：角秒
-    let deltaRA = PMRA * d;
+    let deltaRA = pmra * d;
     // 赤纬自行角度，单位：角秒
-    let deltaDec = PMDec * d;
+    let deltaDec = pmdec * d;
 
     /* 视向差处理 */
 
     // 一天文单位的千米数
     let KMPerAU = 149597870;
     // 转换视向速度单位为 AU/d
-    radVel = radVel * 86400 / KMPerAU;
+    radvel = radvel * 86400 / KMPerAU;
     // 恒星日心自行距离差，单位：AU
-    let deltaRadius = radVel * d * 365.25;
+    let deltaRadius = radvel * d * 365.25;
 
     let sc = new SphericalCoordinate3D(
       Radius + deltaRadius,

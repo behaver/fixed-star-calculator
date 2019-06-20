@@ -13,32 +13,31 @@ const angle = new Angle;
  * 本方法计算结果完成恒星自行和周年视差修正
  *
  * @author 董 三碗 <qianxing@yeah.net>
- * @version 1.0.0
  */
 class TrigonometricCalculator extends CalculatorCommon {
 
   /**
    * 计算恒星 Date 赤道坐标
    * 
-   * @param  {Number} options.RA       J2000 平赤经
-   * @param  {Number} options.Dec      J2000 平赤纬
-   * @param  {Number} options.PMRA     赤经周年自行，单位：角秒每儒略年
-   * @param  {Number} options.PMDec    赤纬周年自行，单位：角秒每儒略年
-   * @param  {Number} options.radVel   日心视向速度，单位：km/s
+   * @param  {Number} options.ra       J2000 平赤经
+   * @param  {Number} options.dec      J2000 平赤纬
+   * @param  {Number} options.pmra     赤经周年自行，单位：角秒每儒略年
+   * @param  {Number} options.pmdec    赤纬周年自行，单位：角秒每儒略年
+   * @param  {Number} options.radvel   日心视向速度，单位：km/s
    * @param  {Number} options.parallax 周年视差，单位：角秒
 
    * @return {Object}                  恒星 Date 赤道坐标对象
    */
   calc({
-    RA,
-    Dec,
-    PMRA,
-    PMDec,
-    radVel,
+    ra,
+    dec,
+    pmra,
+    pmdec,
+    radvel,
     parallax,
   }) {
-    // radVel 缺省值处理
-    if (radVel === undefined) radVel = 0;
+    // radvel 缺省值处理
+    if (radvel === undefined) radvel = 0;
     
     // 一天文单位的千米数
     let KMPerAU = 149597870;
@@ -48,8 +47,8 @@ class TrigonometricCalculator extends CalculatorCommon {
 
     /* 赤经、赤纬处理 */
 
-    let RA_r = angle.setDegrees(RA).getRadian(),
-        Dec_r = angle.setDegrees(Dec).getRadian();
+    let RA_r = angle.setDegrees(ra).getRadian(),
+        Dec_r = angle.setDegrees(dec).getRadian();
 
     // 三角函数处理
     let cosRA = Math.cos(RA_r),
@@ -65,9 +64,9 @@ class TrigonometricCalculator extends CalculatorCommon {
     /* 自行速度处理 */
 
     // 将赤经自行，赤纬自行，视向速度的单位转化为: AU/d
-    let vRA = PMRA / 36525 / parallax,
-        vDec = PMDec / 36525 / parallax,
-        vRad = 86400 * radVel / KMPerAU;
+    let vRA = pmra / 36525 / parallax,
+        vDec = pmdec / 36525 / parallax,
+        vRad = 86400 * radvel / KMPerAU;
 
     let cDsR = cosDec * sinRA,
         sDcR = sinDec * cosRA,

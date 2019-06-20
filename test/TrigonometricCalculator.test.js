@@ -17,11 +17,11 @@ describe('#index', () => {
       let FS = new TrigonometricCalculator(jdate);
 
       let res1 = FS.calc({
-        RA: 41.0500,
-        Dec: 49.2283,
-        PMRA: 0.336,
-        PMDec: -0.089,
-        radVel: 25,
+        ra: 41.0500,
+        dec: 49.2283,
+        pmra: 0.336,
+        pmdec: -0.089,
+        radvel: 25,
         parallax: 0.089,
       });
 
@@ -53,11 +53,11 @@ describe('#index', () => {
       let Calculator = new TrigonometricCalculator(jdate);
 
       let sc = Calculator.calc({
-        RA: angle.parseHACString('00h 08m 23.2586s').getDegrees(),
-        Dec: angle.parseDACString('29°05′25.555″').getDegrees(),
-        PMRA: 0.13568,
-        PMDec: -0.16295,
-        radVel: -10.6,
+        ra: angle.parseHACString('00h 08m 23.2586s').getDegrees(),
+        dec: angle.parseDACString('29°05′25.555″').getDegrees(),
+        pmra: 0.13568,
+        pmdec: -0.16295,
+        radvel: -10.6,
         parallax: 0.03360,
       });
 
